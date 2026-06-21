@@ -20,7 +20,7 @@ export default function SimpleInspiring() {
             Our Approach
           </p>
           <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-white tracking-tighter leading-none uppercase max-w-5xl">
-            We build digital experiences that are simple & inspiring.
+            We engineer IT solutions that are robust, scalable & secure.
           </h2>
         </motion.div>
 
@@ -58,7 +58,7 @@ export default function SimpleInspiring() {
                 transition={{ duration: 0.8, type: "spring", stiffness: 70 }}
                 className="absolute inset-0 bg-white rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20 flex items-center justify-center origin-bottom-left"
               >
-                <span className="text-black font-black text-2xl md:text-3xl tracking-tighter">Hï IBIZA</span>
+                <span className="text-black font-black text-2xl md:text-3xl tracking-tighter uppercase">Cloud Native</span>
                 {/* Fake logo dot exactly like the screenshot */}
                 <span className="absolute top-[42%] right-[22%] w-1.5 h-1.5 bg-black rounded-full" />
               </motion.div>
@@ -75,7 +75,7 @@ export default function SimpleInspiring() {
             className="flex flex-col gap-10 lg:pl-16 max-w-lg mt-8 lg:mt-0"
           >
             <p className="text-white text-xl md:text-[22px] font-medium leading-[1.6] tracking-tight">
-              Big multinational companies or small local brands. Partner approach with one universal goal - to create authentic, functional, and beautiful design.
+              From global enterprise platforms to rapid startup architectures. We partner with you to build intelligent, functional, and highly optimized tech stacks.
             </p>
             
             <div className="flex items-center gap-5 cursor-pointer group w-fit mt-2">

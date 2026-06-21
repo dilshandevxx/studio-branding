@@ -3,11 +3,11 @@
 import Link from "next/link";
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "About", href: "#" },
-  { label: "Contact", href: "#" },
-  { label: "Style Guide", href: "#" },
-  { label: "Licensing", href: "#" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "#" },
+  { label: "Solutions", href: "#" },
+  { label: "Case Studies", href: "#" },
+  { label: "Company", href: "#" },
 ];
 
 const socialIcons = [

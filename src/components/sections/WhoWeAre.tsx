@@ -36,8 +36,8 @@ export default function WhoWeAre() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="text-4xl md:text-5xl lg:text-[4vw] font-bold tracking-tighter leading-[1.15] uppercase pr-0 lg:pr-8"
             >
-              <span className="text-white">We are a digital agency focused on building high-end web experiences.</span>
-              <span className="text-white/30"> We blend design and technology to create premium identities for brands who want to stand out.</span>
+              <span className="text-white">We are an elite IT consultancy engineering high-performance systems.</span>
+              <span className="text-white/30"> We blend cutting-edge architecture and intelligent automation to build digital infrastructures for the future.</span>
             </motion.h2>
 
           </div>
