@@ -1,112 +1,90 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, MapPin, Layout, Search } from "lucide-react";
+import { Menu, ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black selection:bg-[#a9503a] selection:text-white">
+    <section className="relative w-full h-screen overflow-hidden flex flex-col justify-between">
       
-      {/* Background Image with Cinematic Slow Zoom */}
-      <motion.div 
-        initial={{ scale: 1.05 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 3, ease: "easeOut" }}
-        className="absolute inset-0 w-full h-full"
-      >
+      {/* Background Image & Overlay */}
+      <div className="absolute inset-0 z-0">
+        {/* Using a highly cinematic architecture/abstract image */}
         <img 
-          src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2400&auto=format&fit=crop" 
-          alt="Studio Interior" 
-          className="w-full h-full object-cover opacity-60"
+          src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=2564&auto=format&fit=crop" 
+          alt="Cinematic Background" 
+          className="w-full h-full object-cover"
         />
-        {/* Advanced gradient overlay for dramatic lighting */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/60" />
-      </motion.div>
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/80" />
+      </div>
 
-      {/* Top Navigation Bar exactly like screenshot */}
+      {/* Top Navbar */}
       <motion.header 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute top-0 left-0 w-full h-[70px] md:h-[80px] flex z-50 shadow-2xl"
+        initial={{ y: -30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        className="w-full relative z-50 px-6 py-6 md:px-12 md:py-8 flex justify-between items-center"
       >
+        <span className="font-bold text-xl tracking-widest uppercase font-serif text-white">
+          STUDIO SIZZE
+        </span>
         
-        {/* Left & Middle: Terracotta background */}
-        <div className="flex-1 bg-[#a9503a] flex items-center justify-between px-6 md:px-12 text-white">
-          
-          {/* Logo */}
-          <div className="flex items-center gap-4 cursor-pointer group">
-            <span className="font-bold text-xl md:text-2xl tracking-widest uppercase font-serif">STUDIO SIZZE</span>
-            <span className="text-xs md:text-sm font-medium border-l border-white/20 pl-4 opacity-80 group-hover:opacity-100 transition-opacity hidden sm:block uppercase tracking-wider">
-              IT Solutions
-            </span>
+        <div className="flex items-center gap-4 cursor-pointer group">
+          <span className="text-sm uppercase tracking-widest font-medium text-white group-hover:text-white/70 transition-colors hidden sm:block">Menu</span>
+          <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
+            <Menu size={18} strokeWidth={1.5} />
           </div>
-          
-          {/* Links */}
-          <nav className="hidden lg:flex items-center gap-10 text-[13px] font-semibold tracking-wider uppercase">
-            <a href="#" className="hover:text-white/60 transition-colors">Case Studies</a>
-            <a href="#" className="hover:text-white/60 transition-colors">About</a>
-            <a href="#" className="hover:text-white/60 transition-colors">Careers</a>
-            <a href="#" className="hover:text-white/60 transition-colors">Insights</a>
-            <div className="flex items-center gap-1.5 cursor-pointer hover:text-white/60 transition-colors border-l border-white/20 pl-10">
-              <span>EN</span>
-              <ChevronDown size={14} />
-            </div>
-          </nav>
         </div>
-        
-        {/* Right: Dark background */}
-        <div className="w-[140px] md:w-[240px] bg-[#1a1a1a] flex items-center justify-center cursor-pointer group hover:bg-[#222] transition-colors relative overflow-hidden">
-          <span className="text-white text-xs md:text-sm font-bold uppercase tracking-[0.2em] relative z-10 group-hover:scale-105 transition-transform duration-500">Contact Us</span>
-        </div>
-
       </motion.header>
 
-      {/* Center Content */}
-      <div className="relative z-10 w-full h-full flex flex-col items-center justify-center pt-24 px-4">
+      {/* Center Typography */}
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 w-full max-w-5xl mx-auto flex-1 pb-16">
         
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white text-[clamp(2.5rem,6vw,6rem)] font-bold tracking-tight mb-12 text-center drop-shadow-2xl"
+          transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-6"
         >
-          What are you looking to build?
-        </motion.h1>
-        
-        {/* Search Pill Wrapper */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full max-w-4xl"
-        >
-          <div className="flex flex-col md:flex-row items-center bg-white rounded-3xl md:rounded-full p-2.5 gap-2 shadow-[0_30px_60px_rgba(0,0,0,0.4)] backdrop-blur-xl">
-            
-            {/* Dropdown 1 */}
-            <div className="flex-1 w-full md:w-auto flex items-center gap-4 px-6 md:px-8 py-4 cursor-pointer hover:bg-gray-50 rounded-t-2xl md:rounded-l-full md:rounded-tr-none transition-all duration-300 border-b md:border-b-0 md:border-r border-gray-100 group">
-                <MapPin size={20} className="text-gray-400 group-hover:text-[#a9503a] transition-colors shrink-0" />
-                <span className="text-gray-800 font-semibold text-sm md:text-[15px] whitespace-nowrap tracking-wide">Any Industry</span>
-                <ChevronDown size={16} className="text-gray-400 group-hover:text-gray-800 transition-colors ml-auto shrink-0" />
-            </div>
-
-            {/* Dropdown 2 */}
-            <div className="flex-1 w-full md:w-auto flex items-center gap-4 px-6 md:px-8 py-4 cursor-pointer hover:bg-gray-50 transition-all duration-300 rounded-none md:rounded-none group">
-                <Layout size={20} className="text-gray-400 group-hover:text-[#a9503a] transition-colors shrink-0" />
-                <span className="text-gray-800 font-semibold text-sm md:text-[15px] whitespace-nowrap tracking-wide">Any Service</span>
-                <ChevronDown size={16} className="text-gray-400 group-hover:text-gray-800 transition-colors ml-auto shrink-0" />
-            </div>
-
-            {/* Submit Button */}
-            <button className="w-full md:w-auto bg-[#a9503a] hover:bg-[#8a402e] text-white px-10 py-5 rounded-xl md:rounded-full flex items-center justify-center gap-3 transition-all duration-300 font-semibold text-sm md:text-[15px] whitespace-nowrap shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]">
-                <Search size={18} />
-                Find Solutions
-            </button>
-
-          </div>
+          <span className="px-4 py-1.5 rounded-full border border-white/20 backdrop-blur-sm text-white/90 text-[10px] md:text-xs uppercase tracking-[0.3em] font-medium">
+            Est. 2024 — Global
+          </span>
         </motion.div>
 
+        <motion.h1 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="text-[clamp(3.5rem,9vw,9rem)] font-bold text-white tracking-tighter leading-[0.95] uppercase"
+        >
+          Engineering<br />
+          <span className="font-serif italic font-light lowercase text-white/90">the</span> Future
+        </motion.h1>
+
+        <motion.p 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-8 text-white/70 text-lg md:text-xl font-light max-w-2xl leading-relaxed"
+        >
+          We build enterprise-grade software and award-winning digital experiences for ambitious brands worldwide.
+        </motion.p>
+        
       </div>
+
+      {/* Bottom Scroll Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        className="relative z-10 w-full pb-8 flex flex-col items-center justify-center"
+      >
+        <div className="flex flex-col items-center gap-3 animate-bounce cursor-pointer opacity-70 hover:opacity-100 transition-opacity">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-white font-medium">Scroll to explore</span>
+          <ArrowDown size={16} className="text-white" strokeWidth={1.5} />
+        </div>
+      </motion.div>
 
     </section>
   );

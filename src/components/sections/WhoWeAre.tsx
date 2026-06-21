@@ -55,7 +55,7 @@ export default function WhoWeAre() {
               <img 
                 src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1000&auto=format&fit=crop" 
                 alt="Studio Architecture" 
-                className="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-1000"
+                className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-all duration-1000"
               />
             </motion.div>
           </div>

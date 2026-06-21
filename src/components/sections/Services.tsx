@@ -79,26 +79,26 @@ export default function Services() {
                   
                   {/* Number - Far Left */}
                   <div className="w-[80px] md:w-[150px] shrink-0">
-                    <span className="font-mono text-[10px] md:text-xs text-white/40 tracking-widest">
+                    <span className="font-mono text-[10px] md:text-sm text-white/40 tracking-widest">
                       ({svc.num})
                     </span>
                   </div>
 
                   {/* Title - Middle */}
                   <div className="flex-1">
-                    <h3 className={`text-lg md:text-[22px] uppercase tracking-wide transition-colors duration-500 ${isOpen ? 'text-white font-semibold' : 'text-white/70 group-hover:text-white font-medium'}`}>
+                    <h3 className={`text-xl md:text-3xl uppercase tracking-wide transition-colors duration-500 ${isOpen ? 'text-white font-semibold' : 'text-white/70 group-hover:text-white font-medium'}`}>
                       {svc.name}
                     </h3>
                   </div>
 
                   {/* Toggle Button - Far Right */}
                   <div className="shrink-0 pl-4">
-                    <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center transition-all duration-300 ${
+                    <div className={`w-8 h-8 md:w-12 md:h-12 rounded-full border flex items-center justify-center transition-all duration-300 ${
                       isOpen 
                         ? "border-white/40 bg-white/10 text-white rotate-45" 
                         : "border-white/10 text-white/50 group-hover:border-white/40 group-hover:text-white"
                     }`}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-80">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-80">
                         <line x1="12" y1="5" x2="12" y2="19"></line>
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                       </svg>
@@ -162,16 +162,16 @@ export default function Services() {
                         {/* Right Side: Cinematic Image (Takes up more width) */}
                         <div className="w-full lg:w-[55%]">
                           <motion.div 
-                            initial={{ scale: 0.95, opacity: 0, filter: "blur(10px)" }}
-                            animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
-                            exit={{ scale: 0.95, opacity: 0, filter: "blur(10px)" }}
+                            initial={{ scale: 0.95, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.95, opacity: 0 }}
                             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                             className="w-full aspect-[16/9] md:aspect-[3/2] rounded-sm overflow-hidden bg-surface relative group/img"
                           >
                             <img
                               src={svc.image}
                               alt={svc.name}
-                              className="w-full h-full object-cover scale-105 group-hover/img:scale-100 grayscale opacity-70 group-hover/img:grayscale-0 group-hover/img:opacity-100 transition-all duration-[1.5s] ease-[0.22,1,0.36,1]"
+                              className="w-full h-full object-cover scale-105 group-hover/img:scale-100 opacity-70 group-hover/img:opacity-100 transition-all duration-[1.5s] ease-[0.22,1,0.36,1]"
                             />
                             {/* Subtle dark gradient overlay to make it look premium */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-50" />
