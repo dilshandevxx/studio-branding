@@ -6,6 +6,18 @@ export default function StudioGallery() {
   return (
     <section className="py-24 md:py-32 bg-background relative overflow-hidden border-t border-white/[0.08]">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
+        
+        {/* Standard Section Header */}
+        <div className="mb-16 md:mb-24">
+          <p className="text-white/30 text-xs uppercase tracking-[0.25em] mb-4 font-medium flex items-center gap-3">
+            <span className="w-6 h-px bg-white/30 inline-block" />
+            The Studio
+          </p>
+          <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-white tracking-tighter leading-none uppercase">
+            Inside the studio
+          </h2>
+        </div>
+
         <div className="flex flex-col gap-12 md:gap-16">
           
           {/* Images Row */}

@@ -7,7 +7,7 @@ export default function SimpleInspiring() {
     <section className="py-24 md:py-32 bg-background relative overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
         
-        {/* Top Headline */}
+        {/* Top Headline Standardized */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -15,9 +15,12 @@ export default function SimpleInspiring() {
           transition={{ duration: 0.8 }}
           className="mb-24 md:mb-32"
         >
-          <h2 className="text-white font-bold leading-[1.1] tracking-[-0.04em]" style={{ fontSize: "clamp(3rem, 7vw, 6.5rem)" }}>
-            Back to the simple,<br />
-            intuitive, and inspiring.
+          <p className="text-white/30 text-xs uppercase tracking-[0.25em] mb-4 font-medium flex items-center gap-3">
+            <span className="w-6 h-px bg-white/30 inline-block" />
+            Our Approach
+          </p>
+          <h2 className="text-[clamp(2.5rem,5vw,4.5rem)] font-bold text-white tracking-tighter leading-none uppercase max-w-5xl">
+            We build digital experiences that are simple & inspiring.
           </h2>
         </motion.div>
 
