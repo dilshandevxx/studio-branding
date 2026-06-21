@@ -12,7 +12,6 @@ import StudioGallery from "@/components/sections/StudioGallery";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <main className="min-h-screen">
         <Hero />
         <WhoWeAre />
