@@ -1,127 +1,117 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const services = [
   {
-    num: "/01",
-    name: "BRANDING & IDENTITY",
-    desc: "WHETHER YOU'RE JUST EXPLORING POSSIBILITIES OR LOOKING TO SCALE EXISTING TOOLS, WE BUILD A CLEAR PLAN THAT ALIGNS WITH YOUR GOALS. COMPLETE BRAND SYSTEMS FROM VISUAL IDENTITY TO POSITIONING.",
-    tags: "#BRANDING #STRATEGY",
-    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=600&auto=format&fit=crop",
+    num: "01",
+    name: "Branding",
+    desc: "Complete brand systems from visual identity to positioning. We build a clear plan that aligns with your goals and scales with your ambition.",
+    tags: ["Strategy", "Identity"],
+    image: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?q=80&w=1200&auto=format&fit=crop",
   },
   {
-    num: "/02",
-    name: "MOTION GRAPHICS",
-    desc: "WE DESIGN AND DEPLOY KINETIC SYSTEMS THAT BRING YOUR BRAND TO LIFE. FROM LOGO ANIMATIONS TO BROADCAST GRAPHICS, WE STREAMLINE YOUR VISUAL PRESENCE.",
-    tags: "#MOTION #ANIMATION",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=600&auto=format&fit=crop",
+    num: "02",
+    name: "Motion",
+    desc: "Kinetic systems that bring your brand to life. From logo animations to full broadcast graphics packages, we streamline your visual presence.",
+    tags: ["Animation", "3D"],
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop",
   },
   {
-    num: "/03",
-    name: "WEB DESIGN & DIGITAL",
-    desc: "NEED SOMETHING MORE SPECIFIC? WE DEVELOP AWARD-WINNING DIGITAL EXPERIENCES TAILORED TO YOUR OPERATIONS — BUILT WITH PERFORMANCE, ACCESSIBILITY, AND CRAFT IN MIND.",
-    tags: "#WEBDESIGN #UIUX",
-    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=600&auto=format&fit=crop",
+    num: "03",
+    name: "Digital",
+    desc: "Award-winning digital experiences tailored to your operations — built strictly with performance, accessibility, and craft in mind.",
+    tags: ["Web Design", "UX/UI"],
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1200&auto=format&fit=crop",
   },
   {
-    num: "/04",
-    name: "3D & VISUALISATION",
-    desc: "PHOTOREALISTIC 3D RENDERS AND ANIMATED BRAND WORLDS. WE OFFER SIMPLE ONBOARDING, DOCUMENTATION, AND ONGOING SUPPORT TO MAKE SURE EVERYONE FEELS CONFIDENT.",
-    tags: "#3DRENDER #CGI",
-    image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=600&auto=format&fit=crop",
+    num: "04",
+    name: "Content",
+    desc: "Photorealistic 3D renders and animated brand worlds. We offer simple onboarding, documentation, and ongoing support for your team.",
+    tags: ["CGI", "Art Direction"],
+    image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1200&auto=format&fit=crop",
   },
 ];
 
 export default function Services() {
+  const [hovered, setHovered] = useState<number | null>(null);
+
   return (
-    <section id="services" className="py-32 bg-background relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-background relative">
       <div className="max-w-[1440px] mx-auto px-8 md:px-16">
+        
         {/* Header */}
-        <div className="mb-24">
-          <p className="text-white/30 text-xs uppercase tracking-[0.25em] mb-4 font-medium flex items-center gap-3">
-            <span className="w-6 h-px bg-accent inline-block" />
-            What we do
-          </p>
-          <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white tracking-tight leading-none">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8">
+          <h2 className="text-[clamp(3.5rem,6vw,5.5rem)] font-bold text-white tracking-[-0.04em] leading-none uppercase">
             Services
           </h2>
+          <p className="max-w-[280px] text-white/50 text-sm font-medium leading-[1.6]">
+            We deliver premium design and technology solutions without the fluff. Flat, crisp, and beautifully effective.
+          </p>
         </div>
 
-        {/* Architectural Grid Container */}
-        <div className="relative border-y border-white/[0.08]">
-          {/* Faint vertical guide lines */}
-          <div className="absolute inset-y-0 left-0 w-px bg-white/[0.04]" />
-          <div className="absolute inset-y-0 right-0 w-px bg-white/[0.04]" />
-          
-          {services.map((svc, i) => (
-            <motion.div
-              key={svc.num}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="relative group border-b border-white/[0.08] last:border-b-0 hover:bg-white/[0.02] transition-colors duration-500"
-            >
-              {/* Intersection Pluses (+) */}
-              <div className="absolute -top-[4px] -left-[4px] text-white/20 text-[8px] font-mono select-none pointer-events-none">+</div>
-              <div className="absolute -top-[4px] -right-[4px] text-white/20 text-[8px] font-mono select-none pointer-events-none">+</div>
-              
-              {/* Last row bottom pluses */}
-              {i === services.length - 1 && (
-                <>
-                  <div className="absolute -bottom-[4px] -left-[4px] text-white/20 text-[8px] font-mono select-none pointer-events-none">+</div>
-                  <div className="absolute -bottom-[4px] -right-[4px] text-white/20 text-[8px] font-mono select-none pointer-events-none">+</div>
-                </>
-              )}
-
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-6 p-8 lg:p-12 items-center">
-                
-                {/* 1. Number */}
-                <div className="md:col-span-1">
-                  <span className="text-white/40 font-mono text-xs tracking-widest group-hover:text-accent transition-colors duration-300">
-                    {svc.num}
-                  </span>
-                </div>
-
-                {/* 2. Title */}
-                <div className="md:col-span-3">
-                  <h3 className="text-white font-bold text-sm tracking-widest uppercase leading-[1.4] max-w-[200px]">
-                    {svc.name}
-                  </h3>
-                </div>
-
-                {/* 3. Image Container */}
-                <div className="md:col-span-4">
-                  <div className="w-full aspect-[4/3] rounded-xl overflow-hidden bg-surface border border-white/5 relative">
-                    <img
-                      src={svc.image}
-                      alt={svc.name}
-                      className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-                    />
-                    <div className="absolute inset-0 shadow-[inset_0_0_40px_rgba(0,0,0,0.4)] pointer-events-none" />
+        {/* Accordion List */}
+        <div className="flex flex-col w-full relative border-t border-white/[0.08]">
+          {services.map((svc, index) => {
+            const isHovered = hovered === index;
+            
+            return (
+              <div 
+                key={svc.num}
+                onMouseEnter={() => setHovered(index)}
+                onMouseLeave={() => setHovered(null)}
+                className="group border-b border-white/[0.08] flex flex-col py-8 md:py-12 cursor-pointer"
+              >
+                {/* Top Row: Num, Title, Tags */}
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                  <div className="flex items-baseline gap-6 md:gap-12">
+                    <span className={`font-mono text-sm transition-colors duration-300 ${isHovered ? "text-white" : "text-white/30"}`}>
+                      {svc.num}
+                    </span>
+                    <h3 className={`text-[clamp(2.5rem,5vw,6rem)] font-bold uppercase tracking-[-0.02em] transition-all duration-500 ease-[0.22,1,0.36,1] ${isHovered ? "text-white translate-x-4 md:translate-x-8" : "text-white/80"}`}>
+                      {svc.name}
+                    </h3>
                   </div>
-                </div>
 
-                {/* 4. Description & Tags */}
-                <div className="md:col-span-4 h-full flex flex-col justify-between py-2 md:pl-6">
-                  <p className="text-white/40 text-[10px] md:text-[11px] uppercase leading-[1.8] font-mono tracking-wide">
-                    {svc.desc}
-                  </p>
-                  
-                  <div className="mt-8 flex flex-wrap gap-4 text-white/30 text-[9px] uppercase font-mono tracking-widest">
-                    {svc.tags.split(' ').map(tag => (
-                      <span key={tag} className="group-hover:text-white/60 transition-colors duration-300">
+                  <div className="flex gap-3 pl-[3.5rem] md:pl-[4.5rem] lg:pl-0">
+                    {svc.tags.map(tag => (
+                      <span 
+                        key={tag} 
+                        className={`px-4 py-2 rounded-full border border-white/10 font-mono text-[10px] md:text-xs uppercase transition-all duration-300 ${isHovered ? "bg-white text-black border-white" : "bg-transparent text-white"}`}
+                      >
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
 
+                {/* Expanding Content Row */}
+                <div 
+                  className={`overflow-hidden transition-all duration-700 ease-[0.22,1,0.36,1] ${isHovered ? "max-h-[800px] mt-10 md:mt-16 opacity-100" : "max-h-0 mt-0 opacity-0"}`}
+                >
+                  <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start pl-[3.5rem] md:pl-[4.5rem]">
+                    {/* Description */}
+                    <div className="lg:w-1/3">
+                      <p className="text-white/80 text-lg md:text-xl leading-[1.6] font-medium">
+                        {svc.desc}
+                      </p>
+                    </div>
+                    {/* Image */}
+                    <div className="flex-1 w-full h-[250px] md:h-[350px] lg:h-[450px] overflow-hidden rounded-xl bg-white/5">
+                      <img 
+                        src={svc.image} 
+                        alt={svc.name} 
+                        className={`w-full h-full object-cover transition-transform duration-1000 ease-out ${isHovered ? "scale-100" : "scale-110"}`} 
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
+
       </div>
     </section>
   );
