@@ -1,38 +1,35 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const articles = [
   {
     date: "MARCH 20, 2025",
-    title: "5 Common Mistakes Businesses Make When Adopting AI.",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop", 
+    title: "5 Common Mistakes Businesses Make When Adopting AI."
   },
   {
     date: "APRIL 5, 2025",
-    title: "How to Spot AI Automation Opportunities in Your Workflow.",
-    image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800&auto=format&fit=crop",
+    title: "How to Spot AI Automation Opportunities in Your Workflow."
   },
   {
     date: "APRIL 15, 2025",
-    title: "How a Small Retail Business Saved 50+ Hours per Month with AI.",
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800&auto=format&fit=crop", 
+    title: "How a Small Retail Business Saved 50+ Hours per Month."
   },
   {
     date: "APRIL 25, 2025",
-    title: "Top 10 AI Tools Every Business Should Consider.",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop", 
+    title: "Top 10 AI Tools Every Business Should Consider."
   },
 ];
 
 export default function News() {
   return (
-    <section className="bg-background pt-32 pb-24 relative overflow-hidden">
+    <section className="bg-background pt-32 pb-32 relative overflow-hidden">
       
-      {/* Container with massive max-width for an airy feel */}
+      {/* Container */}
       <div className="max-w-[1440px] mx-auto px-8 md:px-16 w-full">
         
-        {/* Top Header Area - Clean and open */}
+        {/* Top Header Area */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-8">
           
           <div className="flex flex-col max-w-2xl">
@@ -46,52 +43,51 @@ export default function News() {
           </div>
 
           <div className="pb-2 md:pb-6">
-            <a href="#" className="group inline-flex items-center gap-3 text-xs uppercase tracking-widest font-bold text-white">
+            <Link href="#" className="group inline-flex items-center gap-3 text-xs uppercase tracking-widest font-bold text-white">
               <span className="border-b border-white/30 group-hover:border-white pb-1 transition-colors">
                 All articles
               </span>
               <span className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
                 ↗
               </span>
-            </a>
+            </Link>
           </div>
 
         </div>
 
-        {/* Articles Grid - Removed borders, added large gaps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+        {/* Minimal Typographic List Area */}
+        <div className="flex flex-col w-full border-t border-white/[0.05]">
           {articles.map((article, idx) => (
-            <motion.div 
+            <motion.a 
+              href="#"
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
-              className="group cursor-pointer flex flex-col"
+              transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="group flex flex-col lg:flex-row lg:items-center justify-between py-10 md:py-16 border-b border-white/[0.05] hover:border-white/20 transition-colors duration-500 cursor-pointer"
             >
               
-              {/* Image Container - Slightly rounded, high-end hover */}
-              <div className="w-full aspect-[4/5] rounded-sm overflow-hidden bg-white/[0.02] relative mb-6">
-                <img 
-                  src={article.image} 
-                  alt={article.title}
-                  className="w-full h-full object-cover grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-[1.2s] ease-[0.22,1,0.36,1]"
-                />
-                {/* Subtle dark gradient overlay at bottom for depth */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              {/* Massive Title */}
+              <div className="w-full lg:w-3/4 pr-0 lg:pr-12">
+                <h3 className="text-white/60 group-hover:text-white text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-[1.2] transition-colors duration-500">
+                  {article.title}
+                </h3>
               </div>
 
-              {/* Date Eyebrow */}
-              <p className="text-white/40 text-[10px] font-mono uppercase tracking-[0.2em] mb-4">
-                {article.date}
-              </p>
-
-              {/* Title Content */}
-              <h3 className="text-white/80 group-hover:text-white text-xl lg:text-2xl font-medium leading-[1.3] transition-colors duration-300">
-                {article.title}
-              </h3>
+              {/* Date & Icon */}
+              <div className="w-full lg:w-1/4 flex items-center justify-between lg:justify-end gap-8 mt-8 lg:mt-0">
+                <span className="text-white/30 group-hover:text-white/60 text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] transition-colors duration-500">
+                  {article.date}
+                </span>
+                
+                {/* Arrow that moves and lights up on hover */}
+                <span className="text-white/20 group-hover:text-[#00FF66] group-hover:translate-x-2 transition-all duration-500 text-xl font-light">
+                  →
+                </span>
+              </div>
               
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 
